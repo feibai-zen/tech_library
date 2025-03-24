@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "search": "/components/common/search",
+    "book-list": "/components/book/list",
+    "tab": "/components/common/tab",
+    "footer": "/components/common/footer",
+    "header": "/components/common/header/header"
+  }
+}

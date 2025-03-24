@@ -1,0 +1,8 @@
+{
+  "usingComponents":{
+    "search":"/components/common/search",
+    "footer":"/components/common/footer",
+    "header": "/components/common/header/header"
+  },
+  "enablePullDownRefresh": true
+}

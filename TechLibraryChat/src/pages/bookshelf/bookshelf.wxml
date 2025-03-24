@@ -1,0 +1,33 @@
+<header title="{{title}}"/>
+<view class='row box'>
+  <view wx:if="{{showTips && books.length ==0 }}" class='tips col-12 font-lv2'>
+    <block wx:if="{{token != ''}}">
+      <view>黑夜给了你一双黑色的眼睛</view>
+      <view>你用它去寻找光明...</view>
+      <view>我们给了你一个华丽的书架</view>
+      <view>你却没有一本书籍...</view>
+      <view class='action'>
+        <search bindsearch="search" />
+      </view>
+    </block>
+    <block wx:if="{{token == ''}}">
+      <view>黑夜给了你一双黑色的眼睛</view>
+      <view>你用它去寻找光明...</view>
+      <view>我们给了你一个华丽的书架</view>
+      <view>你却没登录...</view>
+      <view class='action'>
+        <button bindtap='login'>码上登录</button>
+      </view>
+    </block>
+  </view>
+  <block wx:if="{{books.length>0 && token!=''}}">
+    <view wx:for="{{books}}" wx:key="index" wx:for-item="book" class='col-4'>
+      <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book text-muted'>
+        <image class='box-shadow cover' src='{{book.cover}}'></image>
+        <view class='font-lv3  ellipsis-2row'>{{book.book_name}}</view>
+      </navigator>
+    </view>
+  </block>
+</view>
+
+<footer loading="{{page>0 && books.length>0}}" />

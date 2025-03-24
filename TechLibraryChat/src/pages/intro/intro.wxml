@@ -1,0 +1,144 @@
+<header showIcon title="{{title}}" />
+
+<wxs src="../common.wxs" module="common" />
+<block wx:if="{{book.book_id>0}}">
+  <view class='row info'>
+    <view class='col-4'>
+      <image class='cover box-shadow' src='{{book.cover}}'></image>
+    </view>
+    <view class='col-8'>
+      <text class='ellipsis-2row font-lv1'>{{book.book_name}}</text>
+      <view class='score score-{{book.score}} mgt-30rpx'>
+        <text>{{book.float_score}} 分</text>
+        <text wx:if="{{book.lang.length>0}}" class='pull-right'>[ <text class='color-red'>{{book.lang}}</text> ]</text>
+      </view>
+      <navigator url="/pages/ucenter/ucenter?uid={{book.uid}}" class='mgt-15rpx font-lv3 color-semi'>
+        <image class='icon-avatar' src='../../assets/images/me.png'></image>
+        <text> {{book.user}}</text>
+      </navigator>
+      <view class='progress mgt-30rpx'>
+        <view class='font-lv3 color-grey'>阅读进度
+          <view class='pull-right'>
+            <text>{{book.percent}}%</text>
+            <text wx:if="{{isLogin == false}}">(未登录)</text>
+          </view>
+        </view>
+        <progress class='mgt-15rpx' percent="{{book.percent}}" />
+      </view>
+    </view>
+  </view>
+
+  <view class='data'>
+    <view class='row'>
+      <view class='col'>
+        <text class='font-lv3'>{{book.cnt_doc}}</text>
+        <text class='text-muted font-lv5'>章节</text>
+      </view>
+      <view class='col'>
+        <text class='font-lv3'>{{book.view}}</text>
+        <text class='text-muted font-lv5'>阅读</text>
+      </view>
+      <view class='col'>
+        <text class='font-lv3'>{{book.star}}</text>
+        <text class='text-muted font-lv5'>收藏</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class='intro font-lv3 color-grey'>
+    <text>{{book.description}}</text>
+    <view wx:if="{{book.author.length>0}}" class='ellipsis-1row font-lv4'>来源: {{book.author}} - {{book.author_url}}</view>
+  </view>
+  <navigator url='/pages/menu/menu?identify={{book.book_id}}' class='menu row'>
+    <view class='col font-lv3'>查看目录</view>
+    <view class='col font-lv4 color-grey text-right'>最后更新：{{common.relativeTime(book.updated_at)}}</view>
+  </navigator>
+</block>
+
+<!-- showAd: 内容加载完成再显示广告，避免广告先于内容显示 -->
+<view wx:if="{{showAd && !adClosed}}" style="{{adLoaded ? 'border-bottom: 10rpx solid #efefef' : ''}}">
+  <ad bindload="adLoad" bindclose="adClose" unit-id="{{bannerAdUnitId}}" ad-intervals="30"></ad>
+</view>
+
+<view wx:if="{{relatedBooks.length>0}}" class='panel related-books'>
+  <view class='panel-heading base-padding'>
+    <view class='panel-title pdt-30rpx strong font-lv2'>相关书籍</view>
+  </view>
+  <view class='panel-body base-padding'>
+    <scroll-view scroll-x>
+      <view class='hor'>
+        <block wx:for="{{relatedBooks}}" wx:key='index' wx:for-item="book">
+          <navigator url="/pages/intro/intro?id={{book.book_id}}">
+            <image class='box-shadow cover' src='{{book.cover}}' />
+            <view class='font-lv3 ellipsis-2row mgt-15rpx'>{{book.book_name}}</view>
+          </navigator>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+
+<view wx:if="{{book.book_id>0}}" class='panel comments'>
+  <view class='panel-heading base-padding'>
+    <view class='panel-title pdt-30rpx strong font-lv2'>书友点评</view>
+  </view>
+  <view class='panel-body base-padding'>
+    <block wx:if="{{comments.length>0}}">
+      <view wx:for="{{comments}}" wx:key="index" wx:for-item="comment" class='row comment-list'>
+        <navigator url='/pages/ucenter/ucenter?uid={{comment.uid}}' class='col-2 comment-left'>
+          <image class='img-responsive radius-circle border-basic' src='{{comment.avatar}}'></image>
+        </navigator>
+        <view class='col-10 comment-right'>
+          <view class='row comment-info'>
+            <navigator url='/pages/ucenter/ucenter?uid={{comment.uid}}' class='col font-lv2 color-semi'>{{comment.nickname}}</navigator>
+            <view class='col'>
+              <view class='score score-50'></view>
+            </view>
+            <view class='col'>
+              <view class='pull-right font-lv4 color-grey'>{{common.relativeTime(comment.created_at)}}</view>
+            </view>
+          </view>
+          <view class='row comment-content color-grey font-lv3 mgt-15rpx'>{{comment.content}}</view>
+        </view>
+      </view>
+    </block>
+    <view wx:else class='row comment-list'>
+      <view class='col-12 text-center'>
+        <text class='color-grey font-lv3'>还没有人点评该书籍，期待您的金玉良言</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 底部功能栏  -->
+<view class='fix-bottom'>
+  <view class='row'>
+
+    <navigator url='/pages/bookmarks/bookmarks?identify={{book.book_id}}' class='col item-min'>
+      <image src='../../assets/images/bookmark.png'></image>
+      <text>书签</text>
+    </navigator>
+    <navigator url='/pages/menu/menu?tab=menu&identify={{book.book_id}}' class='col item-min'>
+      <image src='../../assets/images/menu.png'></image>
+      <text>目录</text>
+    </navigator>
+    <view class='col'>
+      <navigator url='/pages/read/read?identify={{book.book_id}}' class='read'>
+        <image src='../../assets/images/read-white.png' mode='scaleToFill'></image>
+        <text>阅读</text>
+      </navigator>
+    </view>
+    <view wx:if="{{book.is_star}}" bindtap='bookStar' data-action="cancel" class='col item-min'>
+      <image src='../../assets/images/star-highlight.png'></image>
+      <text>收藏</text>
+    </view>
+    <view wx:else bindtap='bookStar' data-action="star" class='col item-min'>
+      <image src='../../assets/images/star.png'></image>
+      <text>收藏</text>
+    </view>
+    <view data-url='/pages/comment/comment?identify={{book.book_id}}&score={{myScore}}' bindtap='comment' class='col item-min'>
+      <image src='../../assets/images/comment.png'></image>
+      <text>点评</text>
+    </view>
+  </view>
+</view>

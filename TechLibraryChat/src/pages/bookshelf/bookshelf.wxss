@@ -1,0 +1,35 @@
+.box {
+  padding: 15rpx;
+}
+
+.tips {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 120rpx 15rpx 0;
+  text-align: center;
+  color: #888;
+  line-height: 200%;
+}
+
+.tips .action {
+  margin-top: 60rpx;
+}
+
+.book {
+  width: 206rpx;
+  max-width: 100%;
+  display: block;
+  margin: 30rpx auto;
+}
+
+.progress progress {
+  margin-bottom: 15rpx;
+}
+
+.book image {
+  width: 206rpx;
+  height: 271.6rpx;
+  margin-bottom: 15rpx;
+}
+
+.icon{width: 32rpx;height: 32rpx;}

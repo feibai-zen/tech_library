@@ -1,0 +1,94 @@
+<header title="{{title}}" />
+<view class='base-padding row' bindtap='userLoginEvent'>
+  <view class='user'>
+    <image src='{{user.avatar}}'></image>
+    <view class='username font-lv2'>{{user.nickname}}</view>
+    <view class='color-grey font-lv3'>{{user.intro}}</view>
+  </view>
+</view>
+<view class='base-padding row base-info'>
+  <navigator url='/pages/search/search' class='col-12'>
+    <image src='../../assets/images/search.png'></image>
+    <text>书籍搜索</text>
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </navigator>
+</view>
+<view class='base-padding row base-info'>
+  <navigator url="{{user.uid>0? '/pages/ucenter/ucenter?tab=release':'/pages/login/login'}}" class='col-12'>
+    <image src='../../assets/images/book.png'></image>
+    我的发布
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </navigator>
+  <navigator url='{{user.uid>0?"/pages/ucenter/ucenter?tab=star":"/pages/login/login"}}' class='col-12'>
+    <image src='../../assets/images/star.png'></image>
+    我的收藏
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </navigator>
+  <navigator url='{{user.uid>0?"/pages/ucenter/ucenter?tab=follow":"/pages/login/login"}}' class='col-12'>
+    <image src='../../assets/images/follow.png'></image>
+    我的关注
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </navigator>
+  <navigator url='{{user.uid>0?"/pages/ucenter/ucenter?tab=fans":"/pages/login/login"}}' class='col-12'>
+    <image src='../../assets/images/fans.png'></image>
+    我的粉丝
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </navigator>
+</view>
+
+<view class='base-padding row base-info' bindtap="drawPoster">
+  <view class='col-12'>
+    <image src='/assets/images/share.png'></image>
+    分享到朋友圈
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </view>
+</view>
+
+<view wx:if="{{info.about}}" class='base-padding row base-info'>
+  <navigator url='/pages/read/read?identify={{info.about}}' class='col-12'>
+    <image src='../../assets/images/about-us.png'></image>
+    关于我们
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </navigator>
+</view>
+
+<view class='base-padding row base-info'>
+  <view wx:if="{{user.uid>0}}" bindtap='logout' class='col-12'>
+    <image src='../../assets/images/login.png'></image>
+    退出登录
+    <image class='pull-right' src='/assets/images/right-angle.png'></image>
+  </view>
+</view>
+
+<!-- 分享容器 -->
+<view wx:if="{{showSharePoster}}" class="share-container">
+  <image wx:if="{{shareImage}}" src="{{shareImage}}" class="share-image"></image>
+  <block wx:else>
+    <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="showPoster" />
+  </block>
+  <view wx:if="{{shareImage}}" class="row btns font-lv2">
+      <view class="col close-image">
+        <text bindtap="closePoster" class="color-red">关闭</text>
+      </view>
+      <view class="col save-image">
+        <text bindtap="savePoster" class="color-green">保存到本地</text>
+      </view>
+    </view>
+</view>
+
+<view class='base-padding row base-info'>
+  <view class='col-12 text-center'>
+    <view wx:if="{{info.copyright}}">
+      <text class='font-lv4 color-grey'>Copyright © {{now}} {{info.copyright}}</text>
+    </view>
+    <view wx:if="{{info.license}}">
+      <text class='font-lv4 color-grey'>License：{{info.license}}</text>
+    </view>
+    <view wx:if="{{info.author}}">
+      <text class='font-lv4 color-grey'>Author：{{info.author}}</text>
+    </view>
+    <view wx:if="{{info.version}}">
+      <text class='font-lv4 color-grey'>Version：{{info.version}}</text>
+    </view>
+  </view>
+</view>

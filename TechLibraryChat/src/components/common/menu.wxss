@@ -1,0 +1,27 @@
+@import '../../app.wxss';
+
+.book {
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 30rpx;
+}
+
+.book navigator image {
+  width: 170rpx;
+  height: 223.5rpx;
+}
+
+.book navigator image.cover {
+  max-width: 100%;
+  max-height: auto;
+}
+
+.book-title {
+  white-space: nowrap;
+  padding-top: 7rpx;
+}
+
+.book-info {
+  box-sizing: border-box;
+  padding-left: 30rpx;
+}
+

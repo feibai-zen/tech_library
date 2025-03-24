@@ -1,0 +1,19 @@
+<header showIcon title="{{title}}" />
+
+<wxs src="../common.wxs" module="common" />
+<view class='tab'>
+  <tab tabs="{{tabs}}" showSearch="true" active="{{tabValue}}" gridLen="8" bindclick="tabClick" istyle="margin-bottom:30rpx;" />
+</view>
+
+<view class='base-padding base-margin-bottom'>
+  <book-list books="{{books}}" />
+</view>
+
+<view wx:if="{{page==0}}" class='footer'>
+  <view class='text-center font-lv3 color-grey pdb-30rpx'>{{tips}}</view>
+</view>
+<view wx:else class='footer'>
+  <view class='text-center font-lv3 color-grey pdb-30rpx'>
+    <image src='/assets/images/loading.png' class='loading'></image>
+  </view>
+</view>

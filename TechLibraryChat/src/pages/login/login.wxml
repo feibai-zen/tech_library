@@ -1,0 +1,33 @@
+<header showIcon title="{{title}}" />
+
+<view class='base-padding'>
+  <form bindsubmit='formSubmit'>
+    <view class='form-body'>
+      <view>
+        <image src='../../assets/images/logo.png'></image>
+      </view>
+      <view class='row'>
+        <view class='col-3'>账号</view>
+        <view class='col-9'>
+          <input name="username" auto-focus='true' placeholder="请输入用户名或邮箱" />
+        </view>
+      </view>
+      <view class='row'>
+        <view class='col-3'>密码</view>
+        <view class='col-9'>
+          <input password name="password" placeholder="请输入密码" />
+        </view>
+      </view>
+    </view>
+    <view class='row mgb-30rpx font-lv3 color-grey'>
+      <navigator class='col' url='/pages/read/read?identify={{about}}'>关于我们</navigator>
+      <view class='col text-right' bindtap='findPassword'>忘记密码？</view>
+    </view>
+    <view class='row'>
+      <button class='btn-submit btn-block' loading='{{loading}}' form-type='submit'> 马上登录 </button>
+    </view>
+    <view class='row'>
+      <button bindgetuserinfo='wechatLogin' loading='{{loadingWechat}}' open-type="getUserInfo" class='btn-auth btn-block'> 使用微信授权登录 </button>
+    </view>
+  </form>
+</view>

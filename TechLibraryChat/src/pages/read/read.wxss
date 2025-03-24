@@ -1,0 +1,155 @@
+@import 'markdown.wxss';
+
+page {
+  height: 100%;
+}
+
+.title {
+  line-height: 1.6;
+  border-bottom: 1px solid #efefef;
+  padding: 0 0 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.markdown-body {
+  transition: all 0.5s;
+  padding: 30rpx 30rpx 120rpx;
+  box-sizing: border-box;
+}
+
+/* footer */
+
+.footer {
+  box-shadow: 0rpx 0rpx 10rpx #efefef;
+  border-top: 1px solid #efefef;
+  position: fixed;
+  height: 48px;
+  line-height: 48px;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: bottom 0.2s;
+}
+
+.footer.hide {
+  bottom: -60px;
+}
+
+.footer image {
+  margin-top: 11px;
+  width: 25px;
+  height: 25px;
+}
+
+/* 抽屉 */
+
+.drawer {
+  width: 80%;
+  position: fixed;
+  z-index: 99;
+  height: 100%;
+  overflow-y: scroll;
+  top: 50px;
+  transition: all 0.5s;
+  -webkit-overflow-scrolling: touch;
+  background-color: #fff;
+}
+
+.drawer .drawer-content {
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 120rpx;
+}
+
+.drawer-left {
+  right: 100%;
+  border-right: 1rpx solid #efefef;
+}
+
+.drawer-right {
+  left: 100%;
+  border-left: 1rpx solid #efefef;
+}
+
+.drawer-left.show {
+  right: 20%;
+  border-right: 1px solid #efefef;
+}
+
+.drawer-right.show {
+  left: 20%;
+  border-left: 1px solid #efefef;
+}
+
+.more-setting {
+  position: absolute;
+  width: 100%;
+}
+
+.setting-tips {
+  padding: 8px 8px;
+}
+
+.setting-item {
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  border: 1rpx solid #efefef;
+  border-left: 0;
+  border-right: 0;
+  margin-bottom: 22px;
+}
+
+.more-setting .col {
+  padding: 15px 0;
+}
+
+.setting-btn {
+  margin-bottom: 0;
+  background-color: transparent;
+}
+
+.setting-btn navigator {
+  border-left: 1rpx solid #efefef;
+}
+
+.more-setting .col:nth-of-type(2) {
+  border-right: 1rpx solid #efefef;
+  border-left: 1rpx solid #efefef;
+}
+
+.more-setting .setting-bg .col:nth-of-type(2) {
+  border: 0;
+}
+
+.more-setting image {
+  width: 16px;
+  height: 16px;
+}
+
+slider {
+  width: 100%;
+}
+
+.bg-theme0 {
+  background-color: #fff !important;
+}
+
+.bg-theme1 {
+  background-color: rgb(232, 232, 232) !important;
+}
+
+.bg-theme2 {
+  background-color: rgb(223, 214, 198) !important;
+}
+
+.bg-theme3 {
+  background-color: rgb(208, 189, 138) !important;
+}
+
+.bg-theme4 {
+  background-color: rgb(207, 231, 207) !important;
+}

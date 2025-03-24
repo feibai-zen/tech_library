@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tab": "/components/common/tab",
+    "header": "/components/common/header/header"
+  }
+}

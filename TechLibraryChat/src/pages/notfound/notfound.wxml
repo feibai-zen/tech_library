@@ -1,0 +1,13 @@
+<header showIcon title="{{title}}" />
+
+<view>
+  <view>
+    <image src='../../assets/images/404.png'></image>
+  </view>
+  <text class='font-lv1'>404</text>
+  <text>确认过眼神，没找到对的人</text>
+  <view class='pdt-60rpx text-center go-home' bindtap='goHome'>
+    <image src='/assets/images/home-selected.png'></image>
+    <text class='color-green'>朕要肥家</text>
+  </view>
+</view>

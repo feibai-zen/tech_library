@@ -1,0 +1,59 @@
+<wxs src="../common.wxs" module="common" />
+<header title="{{title}}" />
+<!--  搜索框  -->
+<view wx:if="{{showSearch}}" class='search base-padding mgb-30rpx'>
+  <search bindsearch="search" />
+</view>
+
+<!--  banner  -->
+<view wx:if="{{banners.length>0}}" class='swiper base-padding base-margin-bottom'>
+  <swiper style='height:{{height}}' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{banners}}" wx:key="index" wx:for-item='item'>
+      <swiper-item>
+        <navigator url='{{item.link}}'>
+          <image bindtab='letsgo' src="{{item.image}}" style='width:{{width}};height:{{height}}' class="slide-image" />
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+
+
+<!--  推荐  -->
+<view wx:if="{{recommendBooks.length>0}}" class='panel base-padding recommend base-margin-bottom'>
+  <view class='panel-heading'>
+    <view class='panel-title font-lv1 strong'>最新推荐</view>
+  </view>
+  <view class='panel-body'>
+    <scroll-view scroll-x>
+      <view class='hor'>
+        <block wx:for="{{recommendBooks}}" wx:key='index' wx:for-item="book">
+          <navigator url="/pages/intro/intro?id={{book.book_id}}">
+            <image lazy-load='true' class='box-shadow cover' src='{{book.cover}}' />
+            <view class='font-lv3 ellipsis-2row mgt-15rpx'>{{book.book_name}}</view>
+          </navigator>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<!-- showAd: 内容加载完成再显示广告，避免广告先于内容显示 -->
+<view wx:if="{{showAd && !adClosed}}" class="{{adLoaded ? 'base-margin-bottom': ''}} base-padding">
+  <ad bindclose="adClose" bindload="adLoad" unit-id="{{bannerAdUnitId}}" ad-intervals="30"></ad>
+</view>
+
+<!--  各种分类的书籍的展示  -->
+<block wx:for="{{categoryBooks}}" wx:for-item="category" wx:key="index">
+  <view wx:if="{{category.books.length>0}}" class='panel base-padding base-margin-bottom cate-data'>
+    <view class='panel-heading'>
+      <view class='panel-title font-lv1 strong'>{{category.title}}
+        <navigator url='/pages/list/list?cid={{category.id}}&tab=new' class='pull-right color-link font-lv3'>更多</navigator>
+      </view>
+    </view>
+    <view class='panel-body'>
+      <book-list books="{{category.books}}" />
+    </view>
+  </view>
+</block>

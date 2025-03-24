@@ -1,0 +1,17 @@
+<view wx:if="{{tabs.length>0}}" class='tab'>
+  <view class='row'>
+    <view class='col-{{gridLen}}'>
+      <view class='row'>
+        <block wx:for="{{tabs}}" wx:key="index" wx:for-item="tab">
+          <view bindtap='tabClick' class='col font-lv2 {{tab.class}} {{tab.value == active ? "active":""}}' data-title="{{tab.title}}" data-value="{{tab.value}}">{{tab.title}}</view>
+        </block>
+      </view>
+    </view>
+    <view wx:if="{{gridLenLeft>0 && showSearch}}" class='col-{{gridLenLeft}}'>
+      <navigator url='/pages/search/search'>
+        <image src='/assets/images/search.png'></image>
+      </navigator>
+    </view>
+  </view>
+  <slot></slot>
+</view>
