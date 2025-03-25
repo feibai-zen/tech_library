@@ -1,5 +1,5 @@
 // api host，最后不要带斜杠。后端程序是BookStack (https://github.com/truthhun/BookStack)
-let host = 'http://8.133.246.53/:8181/bookchat'
+let host = 'http://tech-library.cn:8181/bookchat'
 
 
 // 是否是调试模式。如果是生产环境，请设置为false

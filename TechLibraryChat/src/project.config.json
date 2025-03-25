@@ -29,7 +29,7 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "2.4.4",
+  "libVersion": "3.7.11",
   "appid": "wxc59e8b3138ff300d",
   "projectname": "src",
   "isGameTourist": false,
