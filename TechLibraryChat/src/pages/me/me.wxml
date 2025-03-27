@@ -14,7 +14,11 @@
   </navigator>
 </view>
 <view class='base-padding row base-info'>
-
+  <navigator url="{{user.uid>0? '/pages/ucenter/ucenter?tab=release':'/pages/login/login'}}" class='col-12'>
+    <image src='../../assets/images/book.png'></image>
+    我的发布
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </navigator>
   <navigator url='{{user.uid>0?"/pages/ucenter/ucenter?tab=star":"/pages/login/login"}}' class='col-12'>
     <image src='../../assets/images/star.png'></image>
     我的收藏
