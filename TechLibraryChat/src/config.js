@@ -9,10 +9,10 @@ const debug = false
 const bannerRatio = 825/315
 
 const info = {
-  about: 'help/bookchat',
-  version: 'v0.1',
-  author: 'Zen',
-  license: 'Apache 2.0',
+  // about: 'help/bookchat',
+  // version: 'v0.1',
+  // author: 'Zen',
+  // license: 'Apache 2.0',
   copyright: 'TechLibrary.CN'
 }
 
