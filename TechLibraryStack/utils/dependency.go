@@ -39,7 +39,7 @@ func checkInstalledDependencyData() {
 		Name:        nameCalibre,
 		IsInstalled: err == nil,
 		Error:       errCalibre,
-		Message:     "calibre 用于将书籍转换成PDF、epub和mobi ==> <a class='text-danger' target='_blank' href='https://www.bookstack.cn/read/help/Ubuntu.md'>安装教程</a>。如果未安装该模块，则无法生成电子书和提供电子书下载。",
+		Message:     "calibre 用于将书籍转换成PDF、epub和mobi ==> <a class='text-danger' target='_blank' href='https://www.tech-library.cn/read/help/Ubuntu.md'>安装教程</a>。如果未安装该模块，则无法生成电子书和提供电子书下载。",
 		CheckedAt:   time.Now().Format(dateLayout),
 	})
 
@@ -78,7 +78,7 @@ func checkInstalledDependencyData() {
 		Name:        namePuppeteer,
 		IsInstalled: err == nil,
 		Error:       errPuppeteer,
-		Message:     "node.js的模块，用于将markdown渲染为HTML以及生成电子书封面。 <a class='text-danger' target='_blank' href='https://www.bookstack.cn/read/help/Ubuntu.md'>安装教程</a>",
+		Message:     "node.js的模块，用于将markdown渲染为HTML以及生成电子书封面。 <a class='text-danger' target='_blank' href='https://www.tech-library.cn/read/help/Ubuntu.md'>安装教程</a>",
 		CheckedAt:   time.Now().Format(dateLayout),
 	})
 }

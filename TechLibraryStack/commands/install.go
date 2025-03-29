@@ -13,7 +13,7 @@ import (
 	"github.com/astaxie/beego/orm"
 )
 
-//系统安装.
+// 系统安装.
 func Install() {
 
 	fmt.Println("Initializing...")
@@ -60,7 +60,7 @@ func Version() {
 	}
 }
 
-//初始化数据
+// 初始化数据
 func initialization() {
 	models.InstallAdsPosition()
 	err := models.NewOption().Init()
@@ -112,30 +112,30 @@ func initialization() {
 	}
 }
 
-//初始化SEO
+// 初始化SEO
 func initSeo() {
-	sqlslice := []string{"insert ignore into `md_seo`(`id`,`page`,`statement`,`title`,`keywords`,`description`) values ('1','index','发现','书栈网(BookStack.CN)_分享，让知识传承更久远','{keywords}','{description}'),",
-		"('2','label_list','标签列表页','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('3','label_content','标签内容页','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('4','book_info','文档信息页','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('5','book_read','文档阅读页','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('6','search_result','搜索结果页','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('7','user_basic','用户基本信息设置页','{title}  - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('8','user_pwd','用户修改密码页','{title}  - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('9','project_list','书籍列表页','{title}  - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('11','login','登录页','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('12','reg','注册页','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('13','findpwd','找回密码','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('14','manage_dashboard','仪表盘','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('15','manage_users','用户管理','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('16','manage_users_edit','用户编辑','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('17','manage_project_list','书籍列表','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('18','manage_project_edit','书籍编辑','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('19','cate','首页','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('20','ucenter-share','用户主页','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('21','ucenter-collection','用户收藏','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('22','ucenter-fans','用户粉丝','{title} - 书栈网(BookStack.CN)','{keywords}','{description}'),",
-		"('23','ucenter-follow','用户关注','{title} - 书栈网(BookStack.CN)','{keywords}','{description}');",
+	sqlslice := []string{"insert ignore into `md_seo`(`id`,`page`,`statement`,`title`,`keywords`,`description`) values ('1','index','发现','钛客文库(TechLibrary.CN)_分享知识，传承智慧','{keywords}','{description}'),",
+		"('2','label_list','标签列表页','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('3','label_content','标签内容页','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('4','book_info','文档信息页','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('5','book_read','文档阅读页','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('6','search_result','搜索结果页','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('7','user_basic','用户基本信息设置页','{title}  - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('8','user_pwd','用户修改密码页','{title}  - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('9','project_list','书籍列表页','{title}  - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('11','login','登录页','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('12','reg','注册页','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('13','findpwd','找回密码','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('14','manage_dashboard','仪表盘','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('15','manage_users','用户管理','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('16','manage_users_edit','用户编辑','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('17','manage_project_list','书籍列表','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('18','manage_project_edit','书籍编辑','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('19','cate','首页','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('20','ucenter-share','用户主页','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('21','ucenter-collection','用户收藏','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('22','ucenter-fans','用户粉丝','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}'),",
+		"('23','ucenter-follow','用户关注','{title} - 钛客文库(BookStack.CN)','{keywords}','{description}');",
 	}
 	if _, err := orm.NewOrm().Raw(strings.Join(sqlslice, "")).Exec(); err != nil {
 		beego.Error(err.Error())

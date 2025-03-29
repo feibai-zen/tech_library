@@ -43,7 +43,7 @@ BookStack是基于[Mindoc](https://github.com/lifei6671/mindoc)开发的，为�
 
 **BookChatApp下载体验地址**
 
-- https://www.bookstack.cn/app
+- https://www.tech-library.cn/app
 
 <a name="open"></a>
 ## 开源
@@ -69,7 +69,7 @@ BookStack是基于[Mindoc](https://github.com/lifei6671/mindoc)开发的，为�
 
 同时要说明的是，该群是一个学习交流群，如果是程序相关问题，请直接提交issues，不接受邮件求助、微信求助和QQ私信求助
 
-BookStack 安装使用手册：[https://www.bookstack.cn/books/help](https://www.bookstack.cn/books/help)
+BookStack 安装使用手册：[https://www.tech-library.cn/books/help](https://www.tech-library.cn/books/help)
 
 
 <a name="site"></a>
@@ -83,7 +83,7 @@ BookStack 安装使用手册：[https://www.bookstack.cn/books/help](https://www
 <a name="normal"></a>
 ### 正式站点
 
-**书栈网**：[https://www.bookstack.cn](https://www.bookstack.cn)
+**钛客文库**：[https://www.tech-library.cn](https://www.tech-library.cn)
 
 
 
